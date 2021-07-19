@@ -97,7 +97,7 @@ PROTECTVM=N
  echo
  read -p "Enter how much memory for the VM $VMID (example 2048 is 2Gb of memory): " MEMORY
 echo
-read -p "Enter size in Gb's: " DISKSIZE
+read -p "Enter DISK size in Gb's (example 20 is 2oGb of disk): " DISKSIZE
 # This block is see if they want to add a key to the VM
 # and then it checks the path to it and checks to make sure it exists
  while true; do
