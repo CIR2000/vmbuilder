@@ -88,7 +88,7 @@ snippetstorage=/var/lib/vz/snippets/
 vmbrused=vmbr0
 # sshpassallow=True
 sshpassallow=False
-AUTOSTART=no
+AUTOSTART=Y
 PROTECTVM=N
 # end set
 
