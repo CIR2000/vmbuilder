@@ -86,8 +86,8 @@ isostorage=/var/lib/vz/template/iso/
 snipstorage=local
 snippetstorage=/var/lib/vz/snippets/
 vmbrused=vmbr0
-sshpassallow=True
-# sshpassallow=False
+# sshpassallow=True
+sshpassallow=False
 AUTOSTART=no
 PROTECTVM=N
 # end set
