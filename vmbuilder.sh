@@ -191,9 +191,9 @@ done
 while true; do
     read -p "Enter MAC address to use (format example xx.xx.xx.xx.xx.xx): " MACADDRESS
     echo
-    read -p "Please repeate MAC address to use (format example xx.xx.xx.xx.xx.xx): " MACADDRESS
+    read -p "Please repeate MAC address to use (format example xx.xx.xx.xx.xx.xx): " MACADDRESS2
     echo
-    [ "$MACADDRESS" = "$MACADDRESS" ] && break
+    [ "$MACADDRESS" = "$MACADDRESS2" ] && break
     echo
     echo "Please try again gateway IP addresses did not match"
     echo
