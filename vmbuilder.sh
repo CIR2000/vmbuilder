@@ -67,11 +67,10 @@ read -p "Enter desired VM username [default: ubuntu]: " USER
 echo "user: $USER"
 echo
 while true; do
-    read -s -p "Please enter password for the user [return for default password]: " PASSWORD
+    read -s -p "Please enter password for the user : " PASSWORD
     PASSWORD=${PASSWORD:-51qHEFMG1hJP}
     echo
-    read -s -p "Please repeat password for the user [return for default password]: " PASSWORD1
-    PASSWORD1=${PASSWORD1:-51qHEFMG1hJP}
+    read -s -p "Please repeat password for the user : " PASSWORD1
     echo
     [ "$PASSWORD" = "$PASSWORD1" ] && break
     echo
