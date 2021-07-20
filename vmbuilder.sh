@@ -97,7 +97,7 @@ PROTECTVM=N
  echo
  read -p "Enter how much memory for the VM $VMID (example 2048 is 2Gb of memory): " MEMORY
 echo
-read -p "Enter DISK size in Gb's (example 20 is 2oGb of disk): " DISKSIZE
+read -p "Enter DISK size in Gb's (example 20 is 20Gb of disk): " DISKSIZE
 # This block is see if they want to add a key to the VM
 # and then it checks the path to it and checks to make sure it exists
  while true; do
@@ -188,7 +188,7 @@ echo
 while true; do
     read -p "Enter gateway IP address to use (format example 192.168.1.1): " GATEWAY
     echo
-    read -p "Please repeate gateway IP address to use (format example 192.168.1.1): " GATEWAY2
+    read -p "Please repeat gateway IP address to use (format example 192.168.1.1): " GATEWAY2
     echo
     if [[ $GATEWAY != *.254 ]];then
         echo
