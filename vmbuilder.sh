@@ -62,27 +62,34 @@ get_vmidnumber ''
 echo "The VM number will be $VMID"
 
 echo
-read -p "Enter desired VM username: " USER
+read -p "Enter desired VM username [return for default user]: " USER
+# USER=${USER:-ubuntu}
+echo "user: $USER"
 echo
 while true; do
-    read -s -p "Please enter password for the user: " PASSWORD
+    read -s -p "Please enter password for the user [return for default password]: " PASSWORD
+    PASSWORD=${PASSWORD:-51qHEFMG1hJP}
     echo
-    read -s -p "Please repeat password for the user: " PASSWORD1
+    read -s -p "Please repeat password for the user [return for default password]: " PASSWORD1
+    PASSWORD1=${PASSWORD1:-51qHEFMG1hJP}
     echo
     [ "$PASSWORD" = "$PASSWORD1" ] && break
     echo
     echo "Please try again passwords did not match"
     echo
 done
-echo
+# echo "password: $PASSWORD"
+
 # This block is see if they want to add a key to the VM
 # and then it checks the path to it and checks to make sure it exists
- while true; do
- echo
- read -p "Enter the path and key name (path/to/key.pub): " path_to_ssh_key
- echo
- [ -f "$path_to_ssh_key" ] && echo "It appears to be a good key path." && SSHAUTHKEYS=$(cat "$path_to_ssh_key") && break || echo && echo "Does not exist, try again please."
- done
+while true; do
+    echo
+    read -p "Enter the path and key name (path/to/key.pub) [return for default path]: " path_to_ssh_key
+    path_to_ssh_key=${path_to_ssh_key:-/home/vmbuilder/ubuntu_key.pub}
+    # echo "path: $path_to_ssh_key"
+    echo
+    [ -f "$path_to_ssh_key" ] && echo "It appears to be a good key path." && SSHAUTHKEYS=$(cat "$path_to_ssh_key") && break || echo && echo "Does not exist, try again please."
+done
 # really just hashing the password so its not in plain text in the usercloud.yaml
 # that is being created during the process
 # really should do keys for most secure
