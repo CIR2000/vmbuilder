@@ -192,7 +192,7 @@ while true; do
     echo
     if [[ $GATEWAY != *.254 ]];then
         echo
-        echo "Please try again, gateway must terminate with .254"
+        echo "Please try again, gateway must end with .254"
         echo
     else
         [ "$GATEWAY" = "$GATEWAY2" ] && break
