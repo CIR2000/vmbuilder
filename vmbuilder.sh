@@ -232,7 +232,7 @@ do
           [ -f "$isostorage/groovy-server-cloudimg-amd64-disk-kvm.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/daily/server/groovy/current/groovy-server-cloudimg-amd64-disk-kvm.img -P $isostorage && break
           ;;
         "Ubuntu Focal 20.04 Cloud Image")
-          [ -f "$isostorage/focal-server-cloudimg-amd64-disk-kvm.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-disk-kvm.img -P $isostorage && break
+          [ -f "$isostorage/focal-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img -P $isostorage && break
           ;;
         "Ubuntu Minimal Focal 20.04 Cloud Image")
           [ -f "$isostorage/ubuntu-20.04-minimal-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/minimal/releases/focal/release/ubuntu-20.04-minimal-cloudimg-amd64.img -P $isostorage && break
@@ -271,7 +271,7 @@ then
    cloudos=$isostorage'groovy-server-cloudimg-amd64-disk-kvm.img'
 elif [ "$osopt" == "Ubuntu Focal 20.04 Cloud Image" ];
 then
-   cloudos=$isostorage'focal-server-cloudimg-amd64-disk-kvm.img'
+   cloudos=$isostorage'focal-server-cloudimg-amd64.img'
 elif [ "$osopt" == "Ubuntu Minimal Focal 20.04 Cloud Image" ];
 then
    cloudos=$isostorage'ubuntu-20.04-minimal-cloudimg-amd64.img'
