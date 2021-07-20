@@ -166,24 +166,40 @@ done
 else
  NODESYESNO=n
 fi
-echo
+
 while true; do
     echo
     read -p "Enter IP address to use (format example 192.168.1.50/24): " IPADDRESS
     echo
     read -p "Please repeat IP address to use (format example 192.168.1.50/24): " IPADDRESS2
     echo
-    [ "$IPADDRESS" = "$IPADDRESS2" ] && break
-    echo
-    echo "Please try again IP addresses did not match"
-    echo
+    if [[ $IPADDRESS != */32 ]];then
+        echo
+        echo "Please try again, subnet must be /32"
+        echo
+    else
+        [ "$IPADDRESS" = "$IPADDRESS2" ] && break
+        echo
+        echo "Please try again IP addresses did not match"
+        echo
+    fi
 done
+echo
 while true; do
     read -p "Enter gateway IP address to use (format example 192.168.1.1): " GATEWAY
     echo
     read -p "Please repeate gateway IP address to use (format example 192.168.1.1): " GATEWAY2
     echo
-    [ "$GATEWAY" = "$GATEWAY2" ] && break
+    if [[ $GATEWAY != *.254 ]];then
+        echo
+        echo "Please try again, gateway must terminate with .254"
+        echo
+    else
+        [ "$GATEWAY" = "$GATEWAY2" ] && break
+        echo
+        echo "Please try again IP addresses did not match"
+        echo
+    fi
     echo
     echo "Please try again gateway IP addresses did not match"
     echo
