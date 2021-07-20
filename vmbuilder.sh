@@ -62,7 +62,7 @@ get_vmidnumber ''
 echo "The VM number will be $VMID"
 
 echo
-read -p "Enter desired VM username [return for default user]: " USER
+read -p "Enter desired VM username [default: ubuntu]: " USER
 # USER=${USER:-ubuntu}
 echo "user: $USER"
 echo
@@ -84,7 +84,7 @@ done
 # and then it checks the path to it and checks to make sure it exists
 while true; do
     echo
-    read -p "Enter the path and key name (path/to/key.pub) [return for default path]: " path_to_ssh_key
+    read -p "Enter the path and key name (path/to/key.pub) [default: /home/vmbuilder/ubuntu_key.pub]: " path_to_ssh_key
     path_to_ssh_key=${path_to_ssh_key:-/home/vmbuilder/ubuntu_key.pub}
     # echo "path: $path_to_ssh_key"
     echo
