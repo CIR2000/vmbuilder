@@ -175,9 +175,9 @@ fi
 
 while true; do
     echo
-    read -p "Enter IP address to use (format example 192.168.1.50/24): " IPADDRESS
+    read -p "Enter IP address to use (format example 192.168.1.50/32): " IPADDRESS
     echo
-    read -p "Please repeat IP address to use (format example 192.168.1.50/24): " IPADDRESS2
+    read -p "Please repeat IP address to use (format example 192.168.1.50/32): " IPADDRESS2
     echo
     if [[ $IPADDRESS != */32 ]];then
         echo
@@ -192,9 +192,12 @@ while true; do
 done
 echo
 while true; do
-    read -p "Enter gateway IP address to use (format example 192.168.1.1): " GATEWAY
+	echo
+	echo "Gateway IP in OVH is made fom the first three block of baremetal IP + .254"
+	echo
+    read -p "Enter gateway IP address to use (format example 192.168.1.254): " GATEWAY
     echo
-    read -p "Please repeat gateway IP address to use (format example 192.168.1.1): " GATEWAY2
+    read -p "Please repeat gateway IP address to use (format example 192.168.1.254): " GATEWAY2
     echo
     if [[ $GATEWAY != *.254 ]];then
         echo
