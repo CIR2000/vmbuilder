@@ -230,6 +230,12 @@ options=("Ubuntu Groovy 20.10 Cloud Image" "Ubuntu Focal 20.04 Cloud Image" "Ubu
 select osopt in "${options[@]}"
 do
   case $osopt in
+        "Ubuntu Noble 24.04 LTS Cloud Image")
+          [ -f "$isostorage/noble-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img -P $isostorage && break
+          ;;    
+        "Ubuntu Jammy 22.04 LTS Cloud Image")
+          [ -f "$isostorage/jammy-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img -P $isostorage && break
+          ;;  
         "Ubuntu Groovy 20.10 Cloud Image")
           [ -f "$isostorage/groovy-server-cloudimg-amd64-disk-kvm.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/daily/server/groovy/current/groovy-server-cloudimg-amd64-disk-kvm.img -P $isostorage && break
           ;;
@@ -271,6 +277,12 @@ echo
 if [ "$osopt" == "Ubuntu Groovy 20.10 Cloud Image" ];
 then
    cloudos=$isostorage'groovy-server-cloudimg-amd64-disk-kvm.img'
+elif [ "$osopt" == "Ubuntu Noble 24.04 LTS Cloud Image" ];
+then
+   cloudos=$isostorage'noble-server-cloudimg-amd64.img'   
+elif [ "$osopt" == "Ubuntu Jammy 22.04 LTS Cloud Image" ];
+then
+   cloudos=$isostorage'jammy-server-cloudimg-amd64.img'   
 elif [ "$osopt" == "Ubuntu Focal 20.04 Cloud Image" ];
 then
    cloudos=$isostorage'focal-server-cloudimg-amd64.img'
