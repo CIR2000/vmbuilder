@@ -245,7 +245,10 @@ do
         "Ubuntu Minimal Focal 20.04 Cloud Image")
           [ -f "$isostorage/ubuntu-20.04-minimal-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/minimal/releases/focal/release/ubuntu-20.04-minimal-cloudimg-amd64.img -P $isostorage && break
           ;;
-        "CentOS 7 Cloud Image")
+        "AlmaLinux 9 Latest Cloud Image")
+          [ -f "$isostorage/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://raw.repo.almalinux.org/almalinux/9/cloud/x86_64/images/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2 -P $isostorage && break
+          ;;        
+		"CentOS 7 Cloud Image")
           [ -f "$isostorage/CentOS-7-x86_64-GenericCloud.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2 -P $isostorage && break
           ;;
         "Debian 10 Cloud Image")
@@ -289,6 +292,9 @@ then
 elif [ "$osopt" == "Ubuntu Minimal Focal 20.04 Cloud Image" ];
 then
    cloudos=$isostorage'ubuntu-20.04-minimal-cloudimg-amd64.img'
+elif [ "$osopt" == "AlmaLinux 9 Latest Cloud Image" ];
+then
+   cloudos=$isostorage'AlmaLinux-9-GenericCloud-latest.x86_64.qcow2'   
 elif [ "$osopt" == "CentOS 7 Cloud Image" ];
 then
    cloudos=$isostorage'CentOS-7-x86_64-GenericCloud.qcow2'
