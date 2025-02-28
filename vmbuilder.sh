@@ -226,7 +226,7 @@ done
 
 echo "Please select the cloud image you would like to use"
 PS3='Select an option and press Enter: '
-options=("Ubuntu Noble 24.04 LTS Cloud Image" "Ubuntu Jammy 22.04 LTS Cloud Image" "Ubuntu Groovy 20.10 Cloud Image" "Ubuntu Focal 20.04 Cloud Image" "Ubuntu Minimal Focal 20.04 Cloud Image" "AlmaLinux 9 Latest Cloud Image"  "CentOS 7 Cloud Image" "Debian 10 Cloud Image" "Debian 9 Cloud Image" "Ubuntu 18.04 Bionic Image" "CentOS 8 Cloud Image" "Fedora 32 Cloud Image" "Rancher OS Cloud Image")
+options=("Ubuntu Noble 24.04 LTS Cloud Image" "Ubuntu Jammy 22.04 LTS Cloud Image" "Ubuntu Groovy 20.10 Cloud Image" "Ubuntu Focal 20.04 Cloud Image" "Ubuntu Minimal Focal 20.04 Cloud Image" "AlmaLinux 9 Latest Cloud Image"  "AlmaLinux 8 Latest Cloud Image" "CentOS 7 Cloud Image" "Debian 10 Cloud Image" "Debian 9 Cloud Image" "Ubuntu 18.04 Bionic Image" "CentOS 8 Cloud Image" "Fedora 32 Cloud Image" "Rancher OS Cloud Image")
 select osopt in "${options[@]}"
 do
   case $osopt in
@@ -248,6 +248,9 @@ do
         "AlmaLinux 9 Latest Cloud Image")
           [ -f "$isostorage/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://raw.repo.almalinux.org/almalinux/9/cloud/x86_64/images/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2 -P $isostorage && break
           ;;        
+        "AlmaLinux 8 Latest Cloud Image")
+          [ -f "$isostorage/AlmaLinux-8-GenericCloud-latest.x86_64.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://repo.almalinux.org/almalinux/8/cloud/x86_64/images/AlmaLinux-8-GenericCloud-latest.x86_64.qcow2 -P $isostorage && break
+          ;;		  
 		"CentOS 7 Cloud Image")
           [ -f "$isostorage/CentOS-7-x86_64-GenericCloud.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2 -P $isostorage && break
           ;;
@@ -295,6 +298,9 @@ then
 elif [ "$osopt" == "AlmaLinux 9 Latest Cloud Image" ];
 then
    cloudos=$isostorage'AlmaLinux-9-GenericCloud-latest.x86_64.qcow2'   
+elif [ "$osopt" == "AlmaLinux 8 Latest Cloud Image" ];
+then
+   cloudos=$isostorage'AlmaLinux-8-GenericCloud-latest.x86_64.qcow2'      
 elif [ "$osopt" == "CentOS 7 Cloud Image" ];
 then
    cloudos=$isostorage'CentOS-7-x86_64-GenericCloud.qcow2'
