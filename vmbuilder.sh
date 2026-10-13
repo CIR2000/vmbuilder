@@ -230,6 +230,9 @@ options=("Ubuntu Noble 24.04 LTS Cloud Image" "Ubuntu Jammy 22.04 LTS Cloud Imag
 select osopt in "${options[@]}"
 do
   case $osopt in
+          "Ubuntu Resolute 26.04 LTS Cloud Image")
+          [ -f "$isostorage/noble-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/resolute/current/resolute-server-cloudimg-amd64.img -P $isostorage && break
+          ;;
         "Ubuntu Noble 24.04 LTS Cloud Image")
           [ -f "$isostorage/noble-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget -N https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img -P $isostorage && break
           ;;    
