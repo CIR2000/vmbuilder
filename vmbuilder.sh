@@ -286,6 +286,9 @@ echo
 if [ "$osopt" == "Ubuntu Groovy 20.10 Cloud Image" ];
 then
    cloudos=$isostorage'groovy-server-cloudimg-amd64-disk-kvm.img'
+elif [ "$osopt" == "Ubuntu Resolute 26.04 LTS Cloud Image" ];
+then
+   cloudos=$isostorage'resolute-server-cloudimg-amd64.img'      
 elif [ "$osopt" == "Ubuntu Noble 24.04 LTS Cloud Image" ];
 then
    cloudos=$isostorage'noble-server-cloudimg-amd64.img'   
